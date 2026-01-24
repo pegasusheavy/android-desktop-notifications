@@ -1,4 +1,4 @@
-# Maintainer: Your Name <your.email@example.com>
+# Maintainer: Joseph Quinn <quinn.josephr@protonmail.com>
 pkgname=notisync
 pkgver=0.1.0
 pkgrel=1

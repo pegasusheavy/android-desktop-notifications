@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure)
+        echo ""
+        echo "NotiSync installed successfully!"
+        echo ""
+        echo "To start NotiSync now:"
+        echo "  systemctl --user start notisync.service"
+        echo ""
+        echo "To enable NotiSync on login:"
+        echo "  systemctl --user enable notisync.service"
+        echo ""
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

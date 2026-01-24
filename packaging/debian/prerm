@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    remove|upgrade)
+        # Stop the service if running (ignore errors)
+        systemctl --user stop notisync.service 2>/dev/null || true
+        systemctl --user disable notisync.service 2>/dev/null || true
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

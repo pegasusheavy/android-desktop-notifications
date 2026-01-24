@@ -1,0 +1,10 @@
+notisync (0.1.0-1) unstable; urgency=medium
+
+  * Initial release
+  * Android notification forwarding to Linux desktop
+  * mDNS auto-discovery
+  * TLS encrypted WebSocket communication
+  * System tray integration
+  * Systemd user service
+
+ -- Joseph Quinn <quinn.josephr@protonmail.com>  Fri, 24 Jan 2026 12:00:00 +0000

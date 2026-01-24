@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+export CARGO_HOME = $(CURDIR)/debian/cargo
+export DEB_BUILD_OPTIONS = nocheck
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	cd desktop && cargo build --release
+
+override_dh_auto_install:
+	install -Dm755 desktop/target/release/notisync debian/notisync/usr/bin/notisync
+	install -Dm644 notisync.desktop debian/notisync/usr/share/applications/notisync.desktop
+	install -Dm644 notisync.svg debian/notisync/usr/share/icons/hicolor/scalable/apps/notisync.svg
+	install -Dm644 notisync.service debian/notisync/usr/lib/systemd/user/notisync.service
+
+override_dh_auto_clean:
+	cd desktop && cargo clean || true
+	rm -rf $(CARGO_HOME)
+
+override_dh_auto_test:
+	# Skip tests during package build

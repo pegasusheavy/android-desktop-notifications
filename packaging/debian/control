@@ -1,0 +1,32 @@
+Source: notisync
+Section: utils
+Priority: optional
+Maintainer: Joseph Quinn <quinn.josephr@protonmail.com>
+Build-Depends: debhelper-compat (= 13),
+               cargo,
+               rustc,
+               pkg-config,
+               libgtk-3-dev,
+               libayatana-appindicator3-dev,
+               libxdo-dev
+Standards-Version: 4.6.0
+Homepage: https://github.com/PegasusHeavyIndustries/android-desktop-notifications
+
+Package: notisync
+Architecture: amd64
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         libgtk-3-0,
+         libayatana-appindicator3-1,
+         libxdo3,
+         libnotify4
+Description: Sync Android notifications to your Linux desktop
+ NotiSync allows you to receive notifications from your Android phone
+ on your Linux desktop. It uses mDNS for automatic discovery and
+ WebSocket over TLS for secure communication.
+ .
+ Features:
+  - Automatic phone discovery via mDNS
+  - Secure TLS encrypted connection
+  - System tray integration
+  - Native desktop notifications
