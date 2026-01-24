@@ -1,0 +1,17 @@
+[Unit]
+Description=NotiSync - Android notification sync
+Documentation=https://github.com/PegasusHeavyIndustries/android-desktop-notifications
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/notisync
+Restart=on-failure
+RestartSec=5
+
+# Environment for GUI/tray access
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=graphical-session.target

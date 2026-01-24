@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=NotiSync
+Comment=Sync Android notifications to your desktop
+Exec=notisync
+Icon=notisync
+Terminal=false
+Type=Application
+Categories=Utility;Network;
+Keywords=notifications;android;sync;phone;
+StartupNotify=false

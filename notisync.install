@@ -1,0 +1,23 @@
+post_install() {
+    echo ""
+    echo "NotiSync installed successfully!"
+    echo ""
+    echo "To start NotiSync now:"
+    echo "  systemctl --user start notisync.service"
+    echo ""
+    echo "To enable NotiSync on login:"
+    echo "  systemctl --user enable notisync.service"
+    echo ""
+}
+
+post_upgrade() {
+    echo ""
+    echo "NotiSync upgraded. Restart the service:"
+    echo "  systemctl --user restart notisync.service"
+    echo ""
+}
+
+pre_remove() {
+    systemctl --user stop notisync.service 2>/dev/null || true
+    systemctl --user disable notisync.service 2>/dev/null || true
+}

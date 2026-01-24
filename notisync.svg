@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- Phone outline -->
+  <rect x="8" y="4" width="20" height="36" rx="3" ry="3" fill="none" stroke="#4285F4" stroke-width="2"/>
+  <circle cx="18" cy="36" r="2" fill="#4285F4"/>
+
+  <!-- Sync arrows -->
+  <path d="M32 18 L40 18 L40 26" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 18 L36 14 M40 18 L36 22" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M44 30 L36 30 L36 22" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M36 30 L40 34 M36 30 L40 26" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Notification dot -->
+  <circle cx="24" cy="8" r="4" fill="#EA4335"/>
+</svg>
