@@ -29,6 +29,12 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -42,4 +48,12 @@ dependencies {
 
     // Gson for JSON
     implementation("com.google.code.gson:gson:2.10.1")
+
+    // Unit testing
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:5.8.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+    testImplementation("org.robolectric:robolectric:4.11.1")
+    testImplementation("androidx.test:core:1.5.0")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
 }

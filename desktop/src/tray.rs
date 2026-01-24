@@ -4,8 +4,40 @@ use tray_icon::{
     TrayIcon, TrayIconBuilder,
 };
 
+/// Commands that can be received from the tray menu
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum TrayCommand {
     Quit,
+}
+
+/// Generate RGBA data for a circular icon
+pub fn generate_circle_icon(size: u32, r: u8, g: u8, b: u8) -> Vec<u8> {
+    let mut rgba = Vec::with_capacity((size * size * 4) as usize);
+    let center = size as f32 / 2.0;
+    let radius = center - 2.0;
+
+    for y in 0..size {
+        for x in 0..size {
+            let dx = x as f32 - center;
+            let dy = y as f32 - center;
+            let dist = (dx * dx + dy * dy).sqrt();
+
+            if dist < radius {
+                rgba.extend_from_slice(&[r, g, b, 255]);
+            } else {
+                rgba.extend_from_slice(&[0, 0, 0, 0]);
+            }
+        }
+    }
+
+    rgba
+}
+
+/// Create the default blue icon for the tray
+pub fn create_icon_rgba() -> (Vec<u8>, u32, u32) {
+    let size = 32u32;
+    let rgba = generate_circle_icon(size, 66, 133, 244);
+    (rgba, size, size)
 }
 
 pub struct Tray {
@@ -58,26 +90,123 @@ impl Tray {
 }
 
 fn create_icon() -> Result<tray_icon::Icon, Box<dyn std::error::Error>> {
-    // Create a simple 32x32 blue icon
-    let size = 32u32;
-    let mut rgba = Vec::with_capacity((size * size * 4) as usize);
+    let (rgba, width, height) = create_icon_rgba();
+    Ok(tray_icon::Icon::from_rgba(rgba, width, height)?)
+}
 
-    for y in 0..size {
-        for x in 0..size {
-            // Create a simple circle
-            let dx = x as f32 - size as f32 / 2.0;
-            let dy = y as f32 - size as f32 / 2.0;
-            let dist = (dx * dx + dy * dy).sqrt();
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-            if dist < size as f32 / 2.0 - 2.0 {
-                // Blue color
-                rgba.extend_from_slice(&[66, 133, 244, 255]);
-            } else {
-                // Transparent
-                rgba.extend_from_slice(&[0, 0, 0, 0]);
-            }
+    #[test]
+    fn test_tray_command_quit() {
+        let cmd = TrayCommand::Quit;
+        assert_eq!(cmd, TrayCommand::Quit);
+    }
+
+    #[test]
+    fn test_tray_command_clone() {
+        let cmd = TrayCommand::Quit;
+        let cloned = cmd.clone();
+        assert_eq!(cmd, cloned);
+    }
+
+    #[test]
+    fn test_tray_command_copy() {
+        let cmd = TrayCommand::Quit;
+        let copied: TrayCommand = cmd;
+        assert_eq!(cmd, copied);
+    }
+
+    #[test]
+    fn test_tray_command_debug() {
+        let cmd = TrayCommand::Quit;
+        let debug_str = format!("{:?}", cmd);
+        assert_eq!(debug_str, "Quit");
+    }
+
+    #[test]
+    fn test_generate_circle_icon_size() {
+        let size = 32u32;
+        let rgba = generate_circle_icon(size, 255, 0, 0);
+
+        // Should have size * size * 4 bytes (RGBA)
+        assert_eq!(rgba.len(), (size * size * 4) as usize);
+    }
+
+    #[test]
+    fn test_generate_circle_icon_different_sizes() {
+        for size in [16u32, 32, 48, 64, 128] {
+            let rgba = generate_circle_icon(size, 0, 255, 0);
+            assert_eq!(rgba.len(), (size * size * 4) as usize);
         }
     }
 
-    Ok(tray_icon::Icon::from_rgba(rgba, size, size)?)
+    #[test]
+    fn test_generate_circle_icon_center_pixel_colored() {
+        let size = 32u32;
+        let rgba = generate_circle_icon(size, 100, 150, 200);
+
+        // Center pixel should be colored
+        let center = (size / 2) as usize;
+        let idx = (center * size as usize + center) * 4;
+
+        assert_eq!(rgba[idx], 100);     // R
+        assert_eq!(rgba[idx + 1], 150); // G
+        assert_eq!(rgba[idx + 2], 200); // B
+        assert_eq!(rgba[idx + 3], 255); // A (opaque)
+    }
+
+    #[test]
+    fn test_generate_circle_icon_corner_transparent() {
+        let size = 32u32;
+        let rgba = generate_circle_icon(size, 255, 255, 255);
+
+        // Top-left corner should be transparent
+        assert_eq!(rgba[0], 0);   // R
+        assert_eq!(rgba[1], 0);   // G
+        assert_eq!(rgba[2], 0);   // B
+        assert_eq!(rgba[3], 0);   // A (transparent)
+    }
+
+    #[test]
+    fn test_create_icon_rgba_dimensions() {
+        let (rgba, width, height) = create_icon_rgba();
+
+        assert_eq!(width, 32);
+        assert_eq!(height, 32);
+        assert_eq!(rgba.len(), (width * height * 4) as usize);
+    }
+
+    #[test]
+    fn test_create_icon_rgba_blue_color() {
+        let (rgba, width, _) = create_icon_rgba();
+
+        // Check center pixel is blue (66, 133, 244)
+        let center = (width / 2) as usize;
+        let idx = (center * width as usize + center) * 4;
+
+        assert_eq!(rgba[idx], 66);      // R
+        assert_eq!(rgba[idx + 1], 133); // G
+        assert_eq!(rgba[idx + 2], 244); // B
+        assert_eq!(rgba[idx + 3], 255); // A
+    }
+
+    #[test]
+    fn test_channel_communication() {
+        let (tx, rx) = std_mpsc::channel();
+
+        tx.send(TrayCommand::Quit).unwrap();
+
+        let received = rx.try_recv().unwrap();
+        assert_eq!(received, TrayCommand::Quit);
+    }
+
+    #[test]
+    fn test_channel_empty() {
+        let (_tx, rx) = std_mpsc::channel::<TrayCommand>();
+
+        let result = rx.try_recv();
+        assert!(result.is_err());
+    }
 }
