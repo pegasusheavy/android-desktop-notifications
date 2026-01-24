@@ -1740,6 +1740,7 @@ version = "0.1.0"
 dependencies = [
  "directories",
  "env_logger",
+ "futures-util",
  "gethostname",
  "image",
  "log",
