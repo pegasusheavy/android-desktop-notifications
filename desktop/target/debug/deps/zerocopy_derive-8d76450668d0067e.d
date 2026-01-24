@@ -1,8 +1,0 @@
-/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/zerocopy_derive-8d76450668d0067e.d: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/enum.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/ext.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/repr.rs
-
-/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libzerocopy_derive-8d76450668d0067e.so: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/enum.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/ext.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/repr.rs
-
-/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/lib.rs:
-/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/enum.rs:
-/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/ext.rs:
-/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/zerocopy-derive-0.8.33/src/repr.rs:
