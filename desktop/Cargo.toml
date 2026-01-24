@@ -2,6 +2,12 @@
 name = "notisync"
 version = "0.1.0"
 edition = "2021"
+authors = ["Joseph Quinn <quinn.josephr@protonmail.com>"]
+license = "MIT"
+description = "Sync Android notifications to your Linux desktop"
+repository = "https://github.com/PegasusHeavyIndustries/android-desktop-notifications"
+keywords = ["notifications", "android", "sync", "desktop"]
+categories = ["network-programming"]
 
 [dependencies]
 tokio = { version = "1", features = ["full"] }
