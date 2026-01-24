@@ -1,6 +1,6 @@
 [Unit]
 Description=NotiSync - Android notification sync
-Documentation=https://github.com/PegasusHeavyIndustries/android-desktop-notifications
+Documentation=https://github.com/pegasusheavy/android-desktop-notifications
 After=graphical-session.target
 PartOf=graphical-session.target
 

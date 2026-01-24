@@ -4,7 +4,7 @@ Release:        1%{?dist}
 Summary:        Sync Android notifications to your Linux desktop
 
 License:        MIT
-URL:            https://github.com/PegasusHeavyIndustries/android-desktop-notifications
+URL:            https://github.com/pegasusheavy/android-desktop-notifications
 Source0:        %{name}-%{version}.tar.gz
 
 BuildRequires:  rust >= 1.70

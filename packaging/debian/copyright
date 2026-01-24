@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: notisync
 Upstream-Contact: Joseph Quinn <quinn.josephr@protonmail.com>
-Source: https://github.com/PegasusHeavyIndustries/android-desktop-notifications
+Source: https://github.com/pegasusheavy/android-desktop-notifications
 
 Files: *
 Copyright: 2026 Joseph Quinn
