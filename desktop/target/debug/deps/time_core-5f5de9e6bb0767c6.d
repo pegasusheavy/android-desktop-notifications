@@ -1,0 +1,10 @@
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/time_core-5f5de9e6bb0767c6.d: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/convert.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/hint.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/util.rs
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libtime_core-5f5de9e6bb0767c6.rlib: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/convert.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/hint.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/util.rs
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libtime_core-5f5de9e6bb0767c6.rmeta: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/convert.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/hint.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/util.rs
+
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/lib.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/convert.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/hint.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/time-core-0.1.8/src/util.rs:

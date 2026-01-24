@@ -1,0 +1,1 @@
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/notisync: /home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/src/main.rs

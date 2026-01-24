@@ -1,0 +1,10 @@
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/endi-3e61bc28698cc3af.d: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/endian.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/io.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/../README.md
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libendi-3e61bc28698cc3af.rlib: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/endian.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/io.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/../README.md
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libendi-3e61bc28698cc3af.rmeta: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/endian.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/io.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/../README.md
+
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/lib.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/endian.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/io.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/endi-1.1.1/src/../README.md:

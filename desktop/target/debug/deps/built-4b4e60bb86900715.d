@@ -1,0 +1,10 @@
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/built-4b4e60bb86900715.d: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/environment.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/util.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/../README.md
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libbuilt-4b4e60bb86900715.rlib: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/environment.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/util.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/../README.md
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libbuilt-4b4e60bb86900715.rmeta: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/environment.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/util.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/../README.md
+
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/lib.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/environment.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/util.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/built-0.8.0/src/../README.md:

@@ -1,0 +1,10 @@
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/lock_api-9fd6913848ac39ce.d: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/liblock_api-9fd6913848ac39ce.rlib: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/liblock_api-9fd6913848ac39ce.rmeta: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs
+
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs:

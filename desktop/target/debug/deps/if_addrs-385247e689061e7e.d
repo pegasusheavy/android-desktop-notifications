@@ -1,0 +1,10 @@
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/if_addrs-385247e689061e7e.d: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/posix.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/posix_not_apple.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/sockaddr.rs
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libif_addrs-385247e689061e7e.rlib: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/posix.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/posix_not_apple.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/sockaddr.rs
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libif_addrs-385247e689061e7e.rmeta: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/posix.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/posix_not_apple.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/sockaddr.rs
+
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/lib.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/posix.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/posix_not_apple.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/if-addrs-0.13.4/src/sockaddr.rs:

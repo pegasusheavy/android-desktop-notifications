@@ -1,0 +1,687 @@
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_PREFIX_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_PREFIX
+cargo:rerun-if-env-changed=AWS_LC_SYS_PREGENERATING_BINDINGS_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_PREGENERATING_BINDINGS
+cargo:rerun-if-env-changed=AWS_LC_SYS_EXTERNAL_BINDGEN_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_EXTERNAL_BINDGEN
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_ASM_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_ASM
+cargo:rerun-if-env-changed=AWS_LC_SYS_CFLAGS_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_CFLAGS
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=CFLAGS
+cargo:warning=Environment Variable found 'CFLAGS': '-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic'
+cargo:rerun-if-env-changed=AWS_LC_SYS_PREBUILT_NASM_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_PREBUILT_NASM
+cargo:rerun-if-env-changed=AWS_LC_SYS_C_STD_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_C_STD
+cargo:rerun-if-env-changed=AWS_LC_SYS_CMAKE_BUILDER_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_CMAKE_BUILDER
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_PREGENERATED_SRC_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_PREGENERATED_SRC
+cargo:rerun-if-env-changed=AWS_LC_SYS_EFFECTIVE_TARGET_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_EFFECTIVE_TARGET
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_JITTER_ENTROPY_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_JITTER_ENTROPY
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_U1_BINDINGS_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_NO_U1_BINDINGS
+cargo:rerun-if-env-changed=CARGO_ENCODED_RUSTFLAGS
+cargo:warning=Environment Variable found 'CARGO_ENCODED_RUSTFLAGS': ''
+cargo:warning=Emitting configuration: cargo:rustc-cfg=universal
+cargo:rustc-cfg=universal
+cargo:rerun-if-env-changed=AWS_LC_SYS_STATIC_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_STATIC
+cargo:rerun-if-env-changed=CARGO_FEATURE_SSL
+cargo:warning=Building with: CC
+cargo:warning=Symbol Prefix: Some("aws_lc_0_37_0")
+cargo:rerun-if-env-changed=CARGO_FEATURE_SSL
+cargo:warning=Target platform: 'x86_64-unknown-linux-gnu'
+cargo:root=/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out
+cargo:warning=Setting CFLAGS_x86_64_unknown_linux_gnu: -std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic
+OPT_LEVEL = Some(0)
+OUT_DIR = Some(/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out)
+TARGET = Some(x86_64-unknown-linux-gnu)
+CARGO_ENCODED_RUSTFLAGS = Some()
+HOST = Some(x86_64-unknown-linux-gnu)
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=HOST_CC
+HOST_CC = None
+cargo:rerun-if-env-changed=CC
+CC = Some(/usr/bin/clang)
+RUSTC_WRAPPER = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some(true)
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CC_SHELL_ESCAPED_FLAGS
+CC_SHELL_ESCAPED_FLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+OPT_LEVEL = Some(0)
+TARGET = Some(x86_64-unknown-linux-gnu)
+CARGO_ENCODED_RUSTFLAGS = Some()
+HOST = Some(x86_64-unknown-linux-gnu)
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=HOST_CC
+HOST_CC = None
+cargo:rerun-if-env-changed=CC
+CC = Some(/usr/bin/clang)
+RUSTC_WRAPPER = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some(true)
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CC_SHELL_ESCAPED_FLAGS
+CC_SHELL_ESCAPED_FLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+cargo:warning=Compilation of 'c11.c' succeeded - Ok(["/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out/out-c11/7dfda64fdf5a526c-c11.o"]).
+cargo:rerun-if-env-changed=AWS_LC_SYS_CC_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_CC
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=CC
+cargo:warning=Environment Variable found 'CC': '/usr/bin/clang'
+cargo:warning=Setting CC_x86_64_unknown_linux_gnu: /usr/bin/clang
+cargo:rerun-if-env-changed=AWS_LC_SYS_CXX_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_CXX
+cargo:rerun-if-env-changed=CXX_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=CXX
+cargo:warning=Environment Variable found 'CXX': '/usr/bin/clang++'
+cargo:warning=Setting CXX_x86_64_unknown_linux_gnu: /usr/bin/clang++
+OPT_LEVEL = Some(0)
+TARGET = Some(x86_64-unknown-linux-gnu)
+CARGO_ENCODED_RUSTFLAGS = Some()
+HOST = Some(x86_64-unknown-linux-gnu)
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = Some(/usr/bin/clang)
+RUSTC_WRAPPER = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some(true)
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CC_SHELL_ESCAPED_FLAGS
+CC_SHELL_ESCAPED_FLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+cargo:warning=Compilation of 'stdalign_check.c' succeeded - Ok(["/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out/out-stdalign_check/7dfda64fdf5a526c-stdalign_check.o"]).
+OPT_LEVEL = Some(0)
+TARGET = Some(x86_64-unknown-linux-gnu)
+CARGO_ENCODED_RUSTFLAGS = Some()
+HOST = Some(x86_64-unknown-linux-gnu)
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = Some(/usr/bin/clang)
+RUSTC_WRAPPER = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some(true)
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CC_SHELL_ESCAPED_FLAGS
+CC_SHELL_ESCAPED_FLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+cargo:warning=Compilation of 'builtin_swap_check.c' succeeded - Ok(["/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out/out-builtin_swap_check/7dfda64fdf5a526c-builtin_swap_check.o"]).
+OPT_LEVEL = Some(0)
+TARGET = Some(x86_64-unknown-linux-gnu)
+CARGO_ENCODED_RUSTFLAGS = Some()
+HOST = Some(x86_64-unknown-linux-gnu)
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = Some(/usr/bin/clang)
+RUSTC_WRAPPER = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some(true)
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CC_SHELL_ESCAPED_FLAGS
+CC_SHELL_ESCAPED_FLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+cargo:warning=Compilation of 'linux_random_h.c' succeeded - Ok(["/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out/out-linux_random_h/7dfda64fdf5a526c-linux_random_h.o"]).
+OPT_LEVEL = Some(0)
+OUT_DIR = Some(/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out)
+TARGET = Some(x86_64-unknown-linux-gnu)
+CARGO_ENCODED_RUSTFLAGS = Some()
+HOST = Some(x86_64-unknown-linux-gnu)
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = Some(/usr/bin/clang)
+RUSTC_WRAPPER = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some(true)
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CC_SHELL_ESCAPED_FLAGS
+CC_SHELL_ESCAPED_FLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+cargo:warning=Environment Variable found 'CFLAGS_x86_64_unknown_linux_gnu': '-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic'
+cargo:rerun-if-env-changed=CFLAGS
+cargo:warning=Environment Variable found 'CFLAGS': '-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic'
+cargo:warning=Setting CFLAGS_x86_64_unknown_linux_gnu: -std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic -O0 -Wp,-U_FORTIFY_SOURCE
+OPT_LEVEL = Some(0)
+OUT_DIR = Some(/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out)
+TARGET = Some(x86_64-unknown-linux-gnu)
+CARGO_ENCODED_RUSTFLAGS = Some()
+HOST = Some(x86_64-unknown-linux-gnu)
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = Some(/usr/bin/clang)
+RUSTC_WRAPPER = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some(true)
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic)
+cargo:rerun-if-env-changed=CC_SHELL_ESCAPED_FLAGS
+CC_SHELL_ESCAPED_FLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = Some(-std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic -O0 -Wp,-U_FORTIFY_SOURCE)
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+cargo:warning=Setting CFLAGS_x86_64_unknown_linux_gnu: -std=c11 -pedantic -fPIC -O2 -fstack-protector -mtune=generic
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+cargo:warning=In file included from /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/bcm.c:127:
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:139:1: warning: extra ';' outside of a function [-Wextra-semi]
+cargo:warning=  139 | MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED(MD5, MD5_CTX, MD5_CBLOCK)
+cargo:warning=      | ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:120:60: note: expanded from macro 'MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED'
+cargo:warning=  120 |   MD_TRAMPOLINES_EXPLICIT(HASH_NAME, HASH_CTX, HASH_CBLOCK);                  \
+cargo:warning=      |                                                            ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:140:1: warning: extra ';' outside of a function [-Wextra-semi]
+cargo:warning=  140 | MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED(SHA1, SHA_CTX, SHA_CBLOCK)
+cargo:warning=      | ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:120:60: note: expanded from macro 'MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED'
+cargo:warning=  120 |   MD_TRAMPOLINES_EXPLICIT(HASH_NAME, HASH_CTX, HASH_CBLOCK);                  \
+cargo:warning=      |                                                            ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:141:1: warning: extra ';' outside of a function [-Wextra-semi]
+cargo:warning=  141 | MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED(SHA224, SHA256_CTX, SHA256_CBLOCK)
+cargo:warning=      | ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:120:60: note: expanded from macro 'MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED'
+cargo:warning=  120 |   MD_TRAMPOLINES_EXPLICIT(HASH_NAME, HASH_CTX, HASH_CBLOCK);                  \
+cargo:warning=      |                                                            ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:142:1: warning: extra ';' outside of a function [-Wextra-semi]
+cargo:warning=  142 | MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED(SHA256, SHA256_CTX, SHA256_CBLOCK)
+cargo:warning=      | ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:120:60: note: expanded from macro 'MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED'
+cargo:warning=  120 |   MD_TRAMPOLINES_EXPLICIT(HASH_NAME, HASH_CTX, HASH_CBLOCK);                  \
+cargo:warning=      |                                                            ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:143:1: warning: extra ';' outside of a function [-Wextra-semi]
+cargo:warning=  143 | MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED(SHA384, SHA512_CTX, SHA512_CBLOCK)
+cargo:warning=      | ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:120:60: note: expanded from macro 'MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED'
+cargo:warning=  120 |   MD_TRAMPOLINES_EXPLICIT(HASH_NAME, HASH_CTX, HASH_CBLOCK);                  \
+cargo:warning=      |                                                            ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:144:1: warning: extra ';' outside of a function [-Wextra-semi]
+cargo:warning=  144 | MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED(SHA512, SHA512_CTX, SHA512_CBLOCK)
+cargo:warning=      | ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:120:60: note: expanded from macro 'MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED'
+cargo:warning=  120 |   MD_TRAMPOLINES_EXPLICIT(HASH_NAME, HASH_CTX, HASH_CBLOCK);                  \
+cargo:warning=      |                                                            ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:145:1: warning: extra ';' outside of a function [-Wextra-semi]
+cargo:warning=  145 | MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED(SHA512_224, SHA512_CTX, SHA512_CBLOCK)
+cargo:warning=      | ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:120:60: note: expanded from macro 'MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED'
+cargo:warning=  120 |   MD_TRAMPOLINES_EXPLICIT(HASH_NAME, HASH_CTX, HASH_CBLOCK);                  \
+cargo:warning=      |                                                            ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:146:1: warning: extra ';' outside of a function [-Wextra-semi]
+cargo:warning=  146 | MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED(SHA512_256, SHA512_CTX, SHA512_CBLOCK)
+cargo:warning=      | ^
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/fipsmodule/hmac/hmac.c:120:60: note: expanded from macro 'MD_TRAMPOLINES_EXPLICIT_PRECOMPUTED'
+cargo:warning=  120 |   MD_TRAMPOLINES_EXPLICIT(HASH_NAME, HASH_CTX, HASH_CBLOCK);                  \
+cargo:warning=      |                                                            ^
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/crypto/x509/x_info.c:1:1: warning: ISO C requires a translation unit to contain at least one declaration [-Wempty-translation-unit]
+cargo:warning=1 warning generated.
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+cargo:warning=/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aws-lc-sys-0.37.0/aws-lc/generated-src/err_data.c:908:5: warning: string literal of length 16914 exceeds maximum length 4095 that ISO C99 compilers are required to support [-Woverlength-strings]
+cargo:warning=  908 |     "ASN1_LENGTH_MISMATCH\0"
+cargo:warning=      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+cargo:warning=  909 |     "AUX_ERROR\0"
+cargo:warning=      |     ~~~~~~~~~~~~~
+cargo:warning=  910 |     "BAD_GET_ASN1_OBJECT_CALL\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cargo:warning=  911 |     "BAD_OBJECT_HEADER\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~~~~
+cargo:warning=  912 |     "BAD_TEMPLATE\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~
+cargo:warning=  913 |     "BMPSTRING_IS_WRONG_LENGTH\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cargo:warning=  914 |     "BN_LIB\0"
+cargo:warning=      |     ~~~~~~~~~~
+cargo:warning=  915 |     "BOOLEAN_IS_WRONG_LENGTH\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cargo:warning=  916 |     "BUFFER_TOO_SMALL\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~~~
+cargo:warning=  917 |     "CONTEXT_NOT_INITIALISED\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cargo:warning=  918 |     "DECODE_ERROR\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~
+cargo:warning=  919 |     "DEPTH_EXCEEDED\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~
+cargo:warning=  920 |     "DIGEST_AND_KEY_TYPE_NOT_SUPPORTED\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cargo:warning=  921 |     "ENCODE_ERROR\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~
+cargo:warning=  922 |     "ERROR_GETTING_TIME\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~~~~~
+cargo:warning=  923 |     "EXPECTING_AN_ASN1_SEQUENCE\0"
+cargo:warning=      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cargo:warning=1 warning generated.
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+cargo:warning=8 warnings generated.
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+exit status: 0
+cargo:rerun-if-env-changed=AR_x86_64-unknown-linux-gnu
+AR_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=AR_x86_64_unknown_linux_gnu
+AR_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=HOST_AR
+HOST_AR = None
+cargo:rerun-if-env-changed=AR
+AR = None
+cargo:rerun-if-env-changed=ARFLAGS
+ARFLAGS = None
+cargo:rerun-if-env-changed=HOST_ARFLAGS
+HOST_ARFLAGS = None
+cargo:rerun-if-env-changed=ARFLAGS_x86_64_unknown_linux_gnu
+ARFLAGS_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=ARFLAGS_x86_64-unknown-linux-gnu
+ARFLAGS_x86_64-unknown-linux-gnu = None
+cargo:rustc-link-lib=static=aws_lc_0_37_0_crypto
+cargo:rustc-link-search=native=/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out
+cargo:rerun-if-env-changed=AWS_LC_SYS_INCLUDES_x86_64_unknown_linux_gnu
+cargo:rerun-if-env-changed=AWS_LC_SYS_INCLUDES
+cargo:include=/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/build/aws-lc-sys-07f88d188eeddf43/out/include
+cargo:libcrypto=aws_lc_0_37_0_crypto
+cargo:conf=OPENSSL_NO_ASYNC,OPENSSL_NO_BF,OPENSSL_NO_BLAKE2,OPENSSL_NO_BUF_FREELISTS,OPENSSL_NO_CAMELLIA,OPENSSL_NO_CAPIENG,OPENSSL_NO_CAST,OPENSSL_NO_CMS,OPENSSL_NO_COMP,OPENSSL_NO_CRYPTO_MDEBUG,OPENSSL_NO_CT,OPENSSL_NO_DANE,OPENSSL_NO_DEPRECATED,OPENSSL_NO_DGRAM,OPENSSL_NO_DYNAMIC_ENGINE,OPENSSL_NO_EC_NISTP_64_GCC_128,OPENSSL_NO_EC2M,OPENSSL_NO_EGD,OPENSSL_NO_ENGINE,OPENSSL_NO_GMP,OPENSSL_NO_GOST,OPENSSL_NO_HEARTBEATS,OPENSSL_NO_HW,OPENSSL_NO_IDEA,OPENSSL_NO_JPAKE,OPENSSL_NO_KRB5,OPENSSL_NO_MD2,OPENSSL_NO_MDC2,OPENSSL_NO_OCB,OPENSSL_NO_RC2,OPENSSL_NO_RC5,OPENSSL_NO_RFC3779,OPENSSL_NO_RIPEMD,OPENSSL_NO_RMD160,OPENSSL_NO_SCTP,OPENSSL_NO_SEED,OPENSSL_NO_SM2,OPENSSL_NO_SM3,OPENSSL_NO_SM4,OPENSSL_NO_SRP,OPENSSL_NO_SSL_TRACE,OPENSSL_NO_SSL2,OPENSSL_NO_SSL3,OPENSSL_NO_SSL3_METHOD,OPENSSL_NO_STATIC_ENGINE,OPENSSL_NO_STORE,OPENSSL_NO_TS,OPENSSL_NO_WHIRLPOOL
+cargo:rerun-if-changed=builder/
+cargo:rerun-if-changed=aws-lc/

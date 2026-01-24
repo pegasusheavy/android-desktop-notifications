@@ -1,0 +1,10 @@
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/weezl-b054659bfe430e6b.d: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/decode.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/encode.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/error.rs
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libweezl-b054659bfe430e6b.rlib: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/decode.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/encode.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/error.rs
+
+/home/joseph/Projects/PegasusHeavyIndustries/android-desktop-notifications/desktop/target/debug/deps/libweezl-b054659bfe430e6b.rmeta: /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/lib.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/decode.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/encode.rs /home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/error.rs
+
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/lib.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/decode.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/encode.rs:
+/home/joseph/.local/share/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/weezl-0.1.12/src/error.rs:
