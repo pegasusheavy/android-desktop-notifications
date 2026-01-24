@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         enableSwitch.setOnCheckedChangeListener { _, isChecked ->
             val prefs = getSharedPreferences("notisync", MODE_PRIVATE)
             prefs.edit().putBoolean("enabled", isChecked).apply()
+            NotificationService.instance?.setEnabled(isChecked)
         }
     }
 
