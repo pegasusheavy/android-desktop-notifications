@@ -1,6 +1,28 @@
 <resources>
+    <!-- Primary brand colors -->
     <color name="blue_500">#4285F4</color>
+    <color name="blue_400">#669DF6</color>
     <color name="blue_100">#D2E3FC</color>
+    <color name="blue_50">#E8F0FE</color>
+
+    <!-- Status colors -->
     <color name="green_500">#34A853</color>
+    <color name="green_100">#CEEAD6</color>
     <color name="red_500">#EA4335</color>
+    <color name="red_100">#FAD2CF</color>
+    <color name="orange_500">#FBBC04</color>
+    <color name="orange_100">#FEF7E0</color>
+
+    <!-- Surface colors -->
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F8FAFC</color>
+    <color name="background">#F1F5F9</color>
+    <color name="on_surface">#1E293B</color>
+    <color name="on_surface_variant">#64748B</color>
+
+    <!-- Dark theme -->
+    <color name="surface_dark">#1E293B</color>
+    <color name="surface_variant_dark">#334155</color>
+    <color name="background_dark">#0F172A</color>
+    <color name="on_surface_dark">#F1F5F9</color>
 </resources>

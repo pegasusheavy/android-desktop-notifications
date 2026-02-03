@@ -89,6 +89,7 @@ class ConnectionManager(private val context: Context) {
     private fun startDiscovery() {
         isSearching.set(true)
         listener?.onSearching()
+        updateSearchingState(true)
 
         discoveryListener = object : NsdManager.DiscoveryListener {
             override fun onDiscoveryStarted(serviceType: String) {
@@ -134,6 +135,7 @@ class ConnectionManager(private val context: Context) {
         }
         discoveryListener = null
         isSearching.set(false)
+        updateSearchingState(false)
     }
 
     private fun createResolveListener(): NsdManager.ResolveListener {
@@ -206,6 +208,23 @@ class ConnectionManager(private val context: Context) {
         context.getSharedPreferences("notisync", Context.MODE_PRIVATE)
             .edit()
             .putBoolean("connected", connected)
+            .putBoolean("searching", !connected && isSearching.get())
             .apply()
+        broadcastStateChange()
+    }
+
+    private fun updateSearchingState(searching: Boolean) {
+        context.getSharedPreferences("notisync", Context.MODE_PRIVATE)
+            .edit()
+            .putBoolean("searching", searching)
+            .apply()
+        broadcastStateChange()
+    }
+
+    private fun broadcastStateChange() {
+        val intent = android.content.Intent("com.notisync.STATE_CHANGED")
+        androidx.localbroadcastmanager.content.LocalBroadcastManager
+            .getInstance(context)
+            .sendBroadcast(intent)
     }
 }

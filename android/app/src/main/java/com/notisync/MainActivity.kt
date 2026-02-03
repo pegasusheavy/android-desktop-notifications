@@ -1,21 +1,32 @@
 package com.notisync
 
+import android.content.BroadcastReceiver
 import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.switchmaterial.SwitchMaterial
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.materialswitch.MaterialSwitch
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var statusIndicator: View
     private lateinit var statusText: TextView
-    private lateinit var enableSwitch: SwitchMaterial
-    private lateinit var permissionButton: Button
+    private lateinit var statusSubtext: TextView
+    private lateinit var enableSwitch: MaterialSwitch
+    private lateinit var permissionButton: MaterialButton
+
+    private val stateChangeReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            updateUI()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         statusIndicator = findViewById(R.id.statusIndicator)
         statusText = findViewById(R.id.statusText)
+        statusSubtext = findViewById(R.id.statusSubtext)
         enableSwitch = findViewById(R.id.enableSwitch)
         permissionButton = findViewById(R.id.permissionButton)
 
@@ -34,7 +46,17 @@ class MainActivity : AppCompatActivity() {
             val prefs = getSharedPreferences("notisync", MODE_PRIVATE)
             prefs.edit().putBoolean("enabled", isChecked).apply()
             NotificationService.instance?.setEnabled(isChecked)
+            updateUI()
         }
+
+        // Register for state change broadcasts
+        LocalBroadcastManager.getInstance(this)
+            .registerReceiver(stateChangeReceiver, IntentFilter("com.notisync.STATE_CHANGED"))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(stateChangeReceiver)
     }
 
     override fun onResume() {
@@ -48,16 +70,39 @@ class MainActivity : AppCompatActivity() {
         enableSwitch.isEnabled = hasPermission
 
         val prefs = getSharedPreferences("notisync", MODE_PRIVATE)
-        enableSwitch.isChecked = prefs.getBoolean("enabled", false)
+        val isEnabled = prefs.getBoolean("enabled", false)
+        enableSwitch.isChecked = isEnabled
 
         // Update status based on connection state
         val isConnected = prefs.getBoolean("connected", false)
-        if (isConnected) {
-            statusIndicator.setBackgroundResource(R.drawable.circle_green)
-            statusText.text = "Connected"
-        } else {
-            statusIndicator.setBackgroundResource(R.drawable.circle_red)
-            statusText.text = if (hasPermission) "Searching..." else "Disconnected"
+        val isSearching = prefs.getBoolean("searching", false)
+
+        when {
+            !hasPermission -> {
+                statusIndicator.setBackgroundResource(R.drawable.circle_red)
+                statusText.text = "Permission Required"
+                statusSubtext.text = "Grant notification access to continue"
+            }
+            isConnected -> {
+                statusIndicator.setBackgroundResource(R.drawable.circle_green)
+                statusText.text = "Connected"
+                statusSubtext.text = "Notifications will sync to your desktop"
+            }
+            isSearching -> {
+                statusIndicator.setBackgroundResource(R.drawable.circle_orange)
+                statusText.text = "Searching..."
+                statusSubtext.text = "Looking for your desktop on the network"
+            }
+            isEnabled -> {
+                statusIndicator.setBackgroundResource(R.drawable.circle_orange)
+                statusText.text = "Searching..."
+                statusSubtext.text = "Looking for your desktop on the network"
+            }
+            else -> {
+                statusIndicator.setBackgroundResource(R.drawable.circle_red)
+                statusText.text = "Disabled"
+                statusSubtext.text = "Enable sync to get started"
+            }
         }
     }
 

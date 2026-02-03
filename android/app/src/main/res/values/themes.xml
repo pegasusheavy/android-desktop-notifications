@@ -2,5 +2,45 @@
     <style name="Theme.NotiSync" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/blue_500</item>
         <item name="colorPrimaryContainer">@color/blue_100</item>
+        <item name="colorOnPrimaryContainer">@color/blue_500</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- Card styles -->
+    <style name="Widget.NotiSync.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="contentPadding">24dp</item>
+    </style>
+
+    <!-- Status card styles -->
+    <style name="Widget.NotiSync.StatusCard.Connected" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardBackgroundColor">@color/green_100</item>
+    </style>
+
+    <style name="Widget.NotiSync.StatusCard.Disconnected" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardBackgroundColor">@color/red_100</item>
+    </style>
+
+    <style name="Widget.NotiSync.StatusCard.Searching" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardBackgroundColor">@color/orange_100</item>
+    </style>
+
+    <!-- Button styles -->
+    <style name="Widget.NotiSync.Button.Primary" parent="Widget.Material3.Button">
+        <item name="cornerRadius">16dp</item>
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">32dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
     </style>
 </resources>
