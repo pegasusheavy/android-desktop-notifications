@@ -43,7 +43,8 @@ impl MdnsAdvertiser {
             (),
             port,
             properties,
-        )?;
+        )?
+        .enable_addr_auto();  // Auto-detect and advertise IP addresses
 
         let fullname = service_info.get_fullname().to_string();
         daemon.register(service_info)?;

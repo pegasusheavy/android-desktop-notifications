@@ -13,6 +13,9 @@ use std::time::Duration;
 async fn main() {
     env_logger::init();
 
+    // Initialize GTK (required for tray icon on Linux)
+    gtk::init().expect("Failed to initialize GTK");
+
     let port = 9876;
 
     // Start mDNS
@@ -35,6 +38,11 @@ async fn main() {
 
     // Main event loop
     loop {
+        // Process GTK events (required for tray icon on Linux)
+        while gtk::events_pending() {
+            gtk::main_iteration();
+        }
+
         // Check for tray commands
         if let Some(TrayCommand::Quit) = tray.try_recv_command() {
             log::info!("Quit requested");
@@ -42,7 +50,7 @@ async fn main() {
         }
 
         // Check for server events (non-blocking)
-        match tokio::time::timeout(Duration::from_millis(100), event_rx.recv()).await {
+        match tokio::time::timeout(Duration::from_millis(50), event_rx.recv()).await {
             Ok(Some(event)) => match event {
                 ServerEvent::ClientConnected(id) => {
                     log::info!("Phone connected: {}", id);

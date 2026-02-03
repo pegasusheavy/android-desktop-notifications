@@ -1,10 +1,36 @@
 # Rust
 desktop/target/
+**/*.rs.bk
 
 # Android
 android/.gradle/
 android/app/build/
 android/build/
+android/local.properties
 *.apk
 *.aab
-local.properties
+*.ap_
+*.dex
+
+# Arch Linux packaging
+pkg/
+src/
+*.pkg.tar.zst
+*.pkg.tar.xz
+*.pkg.tar.gz
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.cursor/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
