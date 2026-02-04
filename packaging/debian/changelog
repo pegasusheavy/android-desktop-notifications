@@ -1,3 +1,14 @@
+notisync (0.2.0-1) unstable; urgency=medium
+
+  * Release v0.2.0
+  * Cross-platform support (Windows, macOS, Linux)
+  * Windows MSI installer with auto-start on login
+  * macOS Universal DMG (Intel + Apple Silicon)
+  * Improved Android reliability with foreground service
+  * Material Design 3 UI refresh
+
+ -- Joseph Quinn <quinn.josephr@protonmail.com>  Wed, 04 Feb 2026 22:00:00 +0000
+
 notisync (0.1.0-1) unstable; urgency=medium
 
   * Initial release
