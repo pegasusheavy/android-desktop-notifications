@@ -101,20 +101,48 @@
         </div>
 
         <!-- Download Section -->
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" id="download">
             <h2 class="text-2xl font-bold mb-6">Download</h2>
+            
+            <!-- Smart Download Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-6">
+                <!-- Desktop Download (OS-specific) -->
+                <a id="desktop-download" href="#" 
+                   class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-medium transition text-lg">
+                    <i id="desktop-icon" class="fa-solid fa-desktop text-xl"></i>
+                    <span>
+                        <span class="block text-sm opacity-75" id="desktop-label">Desktop App</span>
+                        <span id="desktop-os">Detecting...</span>
+                    </span>
+                </a>
+                
+                <!-- Android Download -->
+                <a id="android-download" href="#" 
+                   class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 px-8 py-4 rounded-xl font-medium transition text-lg">
+                    <i class="fa-brands fa-android text-xl"></i>
+                    <span>
+                        <span class="block text-sm opacity-75">Android App</span>
+                        <span>Download APK</span>
+                    </span>
+                </a>
+            </div>
+            
+            <!-- Secondary Links -->
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="https://github.com/pegasusheavy/android-desktop-notifications/releases/latest" 
-                   class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-medium transition">
-                    <i class="fa-solid fa-download"></i>
-                    Latest Release
+                   class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-5 py-2 rounded-lg text-sm transition border border-white/20">
+                    <i class="fa-solid fa-list"></i>
+                    All Downloads
                 </a>
                 <a href="https://github.com/pegasusheavy/android-desktop-notifications" 
-                   class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl font-medium transition border border-white/20">
+                   class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-5 py-2 rounded-lg text-sm transition border border-white/20">
                     <i class="fa-brands fa-github"></i>
                     View Source
                 </a>
             </div>
+            
+            <!-- Detected OS Info -->
+            <p class="text-gray-500 text-xs mt-4" id="os-info"></p>
         </div>
 
         <!-- How It Works -->
@@ -272,5 +300,109 @@
             </p>
         </footer>
     </div>
+    <script>
+        const REPO = 'pegasusheavy/android-desktop-notifications';
+        const RELEASES_URL = `https://api.github.com/repos/${REPO}/releases/latest`;
+        const RELEASES_PAGE = `https://github.com/${REPO}/releases/latest`;
+
+        // OS Detection
+        function detectOS() {
+            const ua = navigator.userAgent.toLowerCase();
+            const platform = navigator.platform?.toLowerCase() || '';
+            
+            if (ua.includes('win') || platform.includes('win')) {
+                return 'windows';
+            } else if (ua.includes('mac') || platform.includes('mac')) {
+                return 'macos';
+            } else if (ua.includes('linux') || platform.includes('linux')) {
+                return 'linux';
+            } else if (ua.includes('android')) {
+                return 'android';
+            }
+            return 'unknown';
+        }
+
+        // Get file patterns for each OS
+        function getFilePatterns(os) {
+            switch (os) {
+                case 'windows':
+                    return { pattern: /\.msi$/i, icon: 'fa-brands fa-windows', label: 'Windows', file: 'MSI Installer' };
+                case 'macos':
+                    return { pattern: /\.dmg$/i, icon: 'fa-brands fa-apple', label: 'macOS', file: 'Universal DMG' };
+                case 'linux':
+                    return { pattern: /\.deb$/i, icon: 'fa-brands fa-linux', label: 'Linux', file: 'DEB Package' };
+                default:
+                    return { pattern: null, icon: 'fa-solid fa-desktop', label: 'Desktop', file: 'All Platforms' };
+            }
+        }
+
+        // Find matching asset from release
+        function findAsset(assets, pattern) {
+            if (!pattern) return null;
+            return assets.find(a => pattern.test(a.name));
+        }
+
+        // Update UI
+        async function initDownloads() {
+            const os = detectOS();
+            const config = getFilePatterns(os);
+            
+            // Update desktop button appearance
+            const desktopBtn = document.getElementById('desktop-download');
+            const desktopIcon = document.getElementById('desktop-icon');
+            const desktopOs = document.getElementById('desktop-os');
+            const osInfo = document.getElementById('os-info');
+            
+            desktopIcon.className = config.icon + ' text-xl';
+            desktopOs.textContent = config.file;
+            document.getElementById('desktop-label').textContent = `For ${config.label}`;
+            
+            // If on Android, hide desktop button and make Android prominent
+            if (os === 'android') {
+                desktopBtn.classList.add('hidden');
+            }
+            
+            osInfo.textContent = `Detected: ${config.label}`;
+
+            // Fetch latest release
+            try {
+                const response = await fetch(RELEASES_URL);
+                if (!response.ok) throw new Error('Failed to fetch');
+                
+                const release = await response.json();
+                const assets = release.assets || [];
+                
+                // Find desktop asset
+                const desktopAsset = findAsset(assets, config.pattern);
+                if (desktopAsset) {
+                    desktopBtn.href = desktopAsset.browser_download_url;
+                } else {
+                    desktopBtn.href = RELEASES_PAGE;
+                }
+                
+                // Find Android APK (debug version)
+                const androidAsset = assets.find(a => a.name.includes('debug.apk'));
+                const androidBtn = document.getElementById('android-download');
+                if (androidAsset) {
+                    androidBtn.href = androidAsset.browser_download_url;
+                } else {
+                    androidBtn.href = RELEASES_PAGE;
+                }
+                
+                // Show version
+                if (release.tag_name) {
+                    osInfo.textContent += ` · Latest: ${release.tag_name}`;
+                }
+            } catch (e) {
+                // Fallback to releases page
+                desktopBtn.href = RELEASES_PAGE;
+                document.getElementById('android-download').href = RELEASES_PAGE;
+                console.log('Could not fetch release info, using fallback links');
+            }
+        }
+
+        // Run on load
+        document.addEventListener('DOMContentLoaded', initDownloads);
+    </script>
 </body>
 </html>
