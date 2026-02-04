@@ -46,6 +46,85 @@ jobs:
           name: notisync-linux-x86_64
           path: notisync-linux-x86_64.tar.gz
 
+  build-desktop-windows:
+    name: Build Desktop (Windows x86_64)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build
+        run: cargo build --manifest-path desktop/Cargo.toml --release
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $VERSION = $env:GITHUB_REF -replace 'refs/tags/v', ''
+          mkdir dist
+          Copy-Item desktop/target/release/notisync.exe dist/
+          Copy-Item LICENSE dist/
+          Compress-Archive -Path dist/* -DestinationPath notisync-windows-x86_64.zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: notisync-windows-x86_64
+          path: notisync-windows-x86_64.zip
+
+  build-desktop-macos:
+    name: Build Desktop (macOS x86_64)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build
+        run: cargo build --manifest-path desktop/Cargo.toml --release
+
+      - name: Package
+        run: |
+          mkdir -p dist
+          cp desktop/target/release/notisync dist/
+          cp LICENSE dist/
+          tar -czvf notisync-macos-x86_64.tar.gz -C dist .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: notisync-macos-x86_64
+          path: notisync-macos-x86_64.tar.gz
+
+  build-desktop-macos-arm:
+    name: Build Desktop (macOS ARM64)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-darwin
+
+      - name: Build
+        run: cargo build --manifest-path desktop/Cargo.toml --release --target aarch64-apple-darwin
+
+      - name: Package
+        run: |
+          mkdir -p dist
+          cp desktop/target/aarch64-apple-darwin/release/notisync dist/
+          cp LICENSE dist/
+          tar -czvf notisync-macos-aarch64.tar.gz -C dist .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: notisync-macos-aarch64
+          path: notisync-macos-aarch64.tar.gz
+
   build-deb:
     name: Build Debian Package
     runs-on: ubuntu-latest
@@ -117,7 +196,7 @@ jobs:
 
   create-release:
     name: Create Release
-    needs: [build-desktop-linux, build-deb, build-android]
+    needs: [build-desktop-linux, build-desktop-windows, build-desktop-macos, build-desktop-macos-arm, build-deb, build-android]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -140,6 +219,9 @@ jobs:
           generate_release_notes: true
           files: |
             artifacts/notisync-linux-x86_64/*.tar.gz
+            artifacts/notisync-windows-x86_64/*.zip
+            artifacts/notisync-macos-x86_64/*.tar.gz
+            artifacts/notisync-macos-aarch64/*.tar.gz
             artifacts/notisync-deb/*.deb
             artifacts/notisync-android-debug/*.apk
             artifacts/notisync-android-release/*.apk

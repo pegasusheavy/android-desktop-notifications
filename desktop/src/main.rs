@@ -9,12 +9,31 @@ use tray::{Tray, TrayCommand};
 use tokio::sync::mpsc;
 use std::time::Duration;
 
+/// Initialize platform-specific UI toolkit
+fn init_platform() {
+    #[cfg(target_os = "linux")]
+    {
+        gtk::init().expect("Failed to initialize GTK");
+    }
+}
+
+/// Process platform-specific events
+fn process_platform_events() {
+    #[cfg(target_os = "linux")]
+    {
+        while gtk::events_pending() {
+            gtk::main_iteration();
+        }
+    }
+    // On Windows and macOS, tray-icon handles event processing internally
+}
+
 #[tokio::main]
 async fn main() {
     env_logger::init();
 
-    // Initialize GTK (required for tray icon on Linux)
-    gtk::init().expect("Failed to initialize GTK");
+    // Initialize platform-specific UI
+    init_platform();
 
     let port = 9876;
 
@@ -38,10 +57,8 @@ async fn main() {
 
     // Main event loop
     loop {
-        // Process GTK events (required for tray icon on Linux)
-        while gtk::events_pending() {
-            gtk::main_iteration();
-        }
+        // Process platform events (required for tray icon)
+        process_platform_events();
 
         // Check for tray commands
         if let Some(TrayCommand::Quit) = tray.try_recv_command() {

@@ -10,7 +10,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build-desktop:
+  build-desktop-linux:
     name: Build Desktop (Linux)
     runs-on: ubuntu-latest
     steps:
@@ -48,6 +48,98 @@ jobs:
         with:
           name: notisync-linux-x86_64
           path: desktop/target/release/notisync
+
+  build-desktop-windows:
+    name: Build Desktop (Windows)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            desktop/target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('desktop/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
+
+      - name: Build
+        run: cargo build --manifest-path desktop/Cargo.toml --release
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: notisync-windows-x86_64
+          path: desktop/target/release/notisync.exe
+
+  build-desktop-macos:
+    name: Build Desktop (macOS)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            desktop/target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('desktop/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
+
+      - name: Build
+        run: cargo build --manifest-path desktop/Cargo.toml --release
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: notisync-macos-x86_64
+          path: desktop/target/release/notisync
+
+  build-desktop-macos-arm:
+    name: Build Desktop (macOS ARM)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-darwin
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            desktop/target/
+          key: ${{ runner.os }}-arm-cargo-${{ hashFiles('desktop/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-arm-cargo-
+
+      - name: Build
+        run: cargo build --manifest-path desktop/Cargo.toml --release --target aarch64-apple-darwin
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: notisync-macos-aarch64
+          path: desktop/target/aarch64-apple-darwin/release/notisync
 
   build-android:
     name: Build Android
