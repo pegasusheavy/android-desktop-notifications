@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotiSync - Android Notifications on Your Desktop</title>
+    <meta name="description" content="Sync your Android notifications to Windows, macOS, and Linux. Free and open source.">
+    
+    <!-- Tailwind CSS 4 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 50%, #1e1b4b 100%);
+        }
+        .glow {
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+    <!-- Hero Section -->
+    <div class="container mx-auto px-6 py-16 max-w-5xl">
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-500 rounded-2xl mb-6 glow">
+                <i class="fa-solid fa-bell text-4xl"></i>
+            </div>
+            <h1 class="text-5xl font-bold mb-4">NotiSync</h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                Your Android notifications, seamlessly synced to your desktop. 
+                Free, open source, and private.
+            </p>
+        </header>
+
+        <!-- Feature Cards -->
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+                <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-wifi text-green-400 text-xl"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Local Network</h3>
+                <p class="text-gray-400 text-sm">Works entirely over your local WiFi. No cloud, no accounts, no tracking.</p>
+            </div>
+            
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+                <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-lock text-blue-400 text-xl"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Encrypted</h3>
+                <p class="text-gray-400 text-sm">All communication is encrypted with TLS. Your notifications stay private.</p>
+            </div>
+            
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition">
+                <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-bolt text-purple-400 text-xl"></i>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">Instant</h3>
+                <p class="text-gray-400 text-sm">Notifications appear on your desktop the moment they arrive on your phone.</p>
+            </div>
+        </div>
+
+        <!-- Platform Support -->
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 mb-16">
+            <h2 class="text-2xl font-bold text-center mb-8">Works Everywhere</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <i class="fa-brands fa-android text-4xl text-green-400 mb-3"></i>
+                    <p class="font-medium">Android</p>
+                    <p class="text-gray-400 text-sm">Phone App</p>
+                </div>
+                <div>
+                    <i class="fa-brands fa-windows text-4xl text-blue-400 mb-3"></i>
+                    <p class="font-medium">Windows</p>
+                    <p class="text-gray-400 text-sm">MSI Installer</p>
+                </div>
+                <div>
+                    <i class="fa-brands fa-apple text-4xl text-gray-300 mb-3"></i>
+                    <p class="font-medium">macOS</p>
+                    <p class="text-gray-400 text-sm">Universal DMG</p>
+                </div>
+                <div>
+                    <i class="fa-brands fa-linux text-4xl text-orange-400 mb-3"></i>
+                    <p class="font-medium">Linux</p>
+                    <p class="text-gray-400 text-sm">DEB / AUR</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="text-center mb-16">
+            <h2 class="text-2xl font-bold mb-6">Download</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://github.com/pegasusheavy/android-desktop-notifications/releases/latest" 
+                   class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl font-medium transition">
+                    <i class="fa-solid fa-download"></i>
+                    Latest Release
+                </a>
+                <a href="https://github.com/pegasusheavy/android-desktop-notifications" 
+                   class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 rounded-xl font-medium transition border border-white/20">
+                    <i class="fa-brands fa-github"></i>
+                    View Source
+                </a>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="mb-16">
+            <h2 class="text-2xl font-bold text-center mb-8">How It Works</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">1</div>
+                    <h3 class="font-semibold mb-2">Install the Apps</h3>
+                    <p class="text-gray-400 text-sm">Download the Android app and desktop client for your OS.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">2</div>
+                    <h3 class="font-semibold mb-2">Grant Permission</h3>
+                    <p class="text-gray-400 text-sm">Allow notification access on your Android device.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">3</div>
+                    <h3 class="font-semibold mb-2">Auto-Connect</h3>
+                    <p class="text-gray-400 text-sm">Devices find each other automatically via mDNS.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-400 text-sm border-t border-white/10 pt-8">
+            <p class="mb-4">
+                Made with <i class="fa-solid fa-heart text-red-400"></i> by 
+                <a href="https://github.com/pegasusheavy" class="text-blue-400 hover:underline">Pegasus Heavy Industries</a>
+            </p>
+            <p>
+                <a href="https://github.com/pegasusheavy/android-desktop-notifications/blob/main/LICENSE" class="hover:text-white">MIT License</a>
+                <span class="mx-2">·</span>
+                <a href="https://github.com/pegasusheavy/android-desktop-notifications/issues" class="hover:text-white">Report Issue</a>
+                <span class="mx-2">·</span>
+                <a href="https://www.patreon.com/c/PegasusHeavyIndustries" class="hover:text-white">
+                    <i class="fa-brands fa-patreon"></i> Support
+                </a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
