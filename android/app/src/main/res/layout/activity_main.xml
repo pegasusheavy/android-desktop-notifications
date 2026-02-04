@@ -188,6 +188,22 @@
                 app:iconGravity="textStart"
                 app:iconPadding="12dp" />
 
+            <!-- Battery Optimization Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/batteryButton"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingVertical="16dp"
+                android:text="Disable Battery Optimization"
+                android:textSize="15sp"
+                android:visibility="gone"
+                app:cornerRadius="16dp"
+                app:icon="@android:drawable/ic_lock_idle_charging"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp" />
+
             <!-- Info section -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"

@@ -3,9 +3,13 @@ package com.notisync
 import android.content.Context
 import android.net.nsd.NsdManager
 import android.net.nsd.NsdServiceInfo
+import android.os.Build
 import android.util.Log
 import com.google.gson.Gson
 import okhttp3.*
+import java.net.Inet4Address
+import java.net.Inet6Address
+import java.net.InetAddress
 import java.security.SecureRandom
 import java.security.cert.X509Certificate
 import java.util.concurrent.ConcurrentLinkedQueue
@@ -144,15 +148,43 @@ class ConnectionManager(private val context: Context) {
                 Log.e(TAG, "Resolve failed: $errorCode")
             }
 
+            @Suppress("DEPRECATION")
             override fun onServiceResolved(serviceInfo: NsdServiceInfo) {
-                Log.d(TAG, "Service resolved: ${serviceInfo.host}:${serviceInfo.port}")
-                connectToServer(serviceInfo.host.hostAddress!!, serviceInfo.port)
+                // Get addresses - prefer IPv4 over IPv6
+                val addresses: List<InetAddress> = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                    serviceInfo.hostAddresses
+                } else {
+                    listOfNotNull(serviceInfo.host)
+                }
+
+                // Prefer IPv4, fall back to IPv6
+                val address = addresses.filterIsInstance<Inet4Address>().firstOrNull()
+                    ?: addresses.filterIsInstance<Inet6Address>().firstOrNull()
+                    ?: addresses.firstOrNull()
+
+                if (address == null) {
+                    Log.e(TAG, "No valid address found for service")
+                    return
+                }
+
+                Log.d(TAG, "Service resolved: ${address.hostAddress}:${serviceInfo.port}")
+                connectToServer(address, serviceInfo.port)
             }
         }
     }
 
-    private fun connectToServer(host: String, port: Int) {
+    private fun connectToServer(address: InetAddress, port: Int) {
         if (isConnected.get()) return
+
+        // Format the host properly for URL - IPv6 needs brackets
+        val host = when (address) {
+            is Inet6Address -> {
+                // Get address without zone ID and wrap in brackets
+                val addrStr = address.hostAddress?.split("%")?.firstOrNull() ?: return
+                "[$addrStr]"
+            }
+            else -> address.hostAddress ?: return
+        }
 
         val url = "wss://$host:$port"
         Log.d(TAG, "Connecting to $url")
@@ -161,12 +193,14 @@ class ConnectionManager(private val context: Context) {
             .url(url)
             .build()
 
+        val displayHost = address.hostAddress ?: host
+        
         webSocket = okHttpClient.newWebSocket(request, object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
                 Log.d(TAG, "WebSocket connected")
                 isConnected.set(true)
                 stopDiscovery()
-                listener?.onConnected(host)
+                listener?.onConnected(displayHost)
 
                 // Send queued notifications
                 while (notificationQueue.isNotEmpty()) {
@@ -179,7 +213,7 @@ class ConnectionManager(private val context: Context) {
             }
 
             override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
-                Log.e(TAG, "WebSocket failure", t)
+                Log.e(TAG, "WebSocket failure: ${t.message}", t)
                 handleDisconnection()
             }
 

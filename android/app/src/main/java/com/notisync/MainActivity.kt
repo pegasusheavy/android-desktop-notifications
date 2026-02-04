@@ -5,7 +5,9 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.net.Uri
 import android.os.Bundle
+import android.os.PowerManager
 import android.provider.Settings
 import android.view.View
 import android.widget.TextView
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var statusSubtext: TextView
     private lateinit var enableSwitch: MaterialSwitch
     private lateinit var permissionButton: MaterialButton
+    private lateinit var batteryButton: MaterialButton
 
     private val stateChangeReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -37,9 +40,14 @@ class MainActivity : AppCompatActivity() {
         statusSubtext = findViewById(R.id.statusSubtext)
         enableSwitch = findViewById(R.id.enableSwitch)
         permissionButton = findViewById(R.id.permissionButton)
+        batteryButton = findViewById(R.id.batteryButton)
 
         permissionButton.setOnClickListener {
             startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
+        }
+
+        batteryButton.setOnClickListener {
+            requestBatteryOptimizationExemption()
         }
 
         enableSwitch.setOnCheckedChangeListener { _, isChecked ->
@@ -66,7 +74,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateUI() {
         val hasPermission = isNotificationListenerEnabled()
+        val hasBatteryExemption = isBatteryOptimizationDisabled()
+        
         permissionButton.visibility = if (hasPermission) View.GONE else View.VISIBLE
+        batteryButton.visibility = if (hasBatteryExemption || !hasPermission) View.GONE else View.VISIBLE
         enableSwitch.isEnabled = hasPermission
 
         val prefs = getSharedPreferences("notisync", MODE_PRIVATE)
@@ -110,5 +121,18 @@ class MainActivity : AppCompatActivity() {
         val componentName = ComponentName(this, NotificationService::class.java)
         val flat = Settings.Secure.getString(contentResolver, "enabled_notification_listeners")
         return flat?.contains(componentName.flattenToString()) == true
+    }
+
+    private fun isBatteryOptimizationDisabled(): Boolean {
+        val powerManager = getSystemService(POWER_SERVICE) as PowerManager
+        return powerManager.isIgnoringBatteryOptimizations(packageName)
+    }
+
+    @Suppress("BatteryLife")
+    private fun requestBatteryOptimizationExemption() {
+        val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+            data = Uri.parse("package:$packageName")
+        }
+        startActivity(intent)
     }
 }
