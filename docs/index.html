@@ -129,6 +129,122 @@
             </div>
         </div>
 
+        <!-- Android Sideload Instructions -->
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 mb-16">
+            <h2 class="text-2xl font-bold mb-6">
+                <i class="fa-brands fa-android text-green-400 mr-2"></i>
+                Installing the Android App
+            </h2>
+            <p class="text-gray-300 mb-6">
+                The app isn't on the Play Store yet, so you'll need to sideload the APK. Here's how:
+            </p>
+            
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                    <div>
+                        <h3 class="font-semibold mb-1">Download the APK</h3>
+                        <p class="text-gray-400 text-sm mb-2">
+                            Go to the <a href="https://github.com/pegasusheavy/android-desktop-notifications/releases/latest" class="text-blue-400 hover:underline">latest release</a> 
+                            and download <code class="bg-white/10 px-2 py-0.5 rounded text-xs">notisync-*-debug.apk</code> to your phone.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                    <div>
+                        <h3 class="font-semibold mb-1">Allow Installation from Unknown Sources</h3>
+                        <p class="text-gray-400 text-sm">
+                            When you tap the APK, Android will prompt you to allow installing from your browser or file manager. 
+                            Tap <strong class="text-white">Settings</strong> → enable <strong class="text-white">Allow from this source</strong> → go back.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                    <div>
+                        <h3 class="font-semibold mb-1">Install the APK</h3>
+                        <p class="text-gray-400 text-sm">
+                            Tap <strong class="text-white">Install</strong> when prompted. If you see a Play Protect warning, tap 
+                            <strong class="text-white">More details</strong> → <strong class="text-white">Install anyway</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                    <div>
+                        <h3 class="font-semibold mb-1">Grant Notification Access</h3>
+                        <p class="text-gray-400 text-sm">
+                            Open NotiSync and tap <strong class="text-white">Grant Permission</strong>. This takes you to Android settings. 
+                            Find <strong class="text-white">NotiSync</strong> in the list and enable it. Confirm the warning dialog.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                    <div>
+                        <h3 class="font-semibold mb-1">Disable Battery Optimization <span class="text-yellow-400 text-xs font-normal">(Recommended)</span></h3>
+                        <p class="text-gray-400 text-sm">
+                            For reliable background operation, tap <strong class="text-white">Disable Battery Optimization</strong> in the app 
+                            and allow NotiSync to run unrestricted. This prevents Android from killing the app when your screen is off.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-xl">
+                <p class="text-sm text-blue-200">
+                    <i class="fa-solid fa-circle-info mr-2"></i>
+                    <strong>Tip:</strong> Make sure your phone and desktop are on the same WiFi network. 
+                    The app will automatically find and connect to your desktop.
+                </p>
+            </div>
+        </div>
+
+        <!-- Desktop Installation -->
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 mb-16">
+            <h2 class="text-2xl font-bold mb-6">
+                <i class="fa-solid fa-desktop text-blue-400 mr-2"></i>
+                Installing the Desktop App
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Windows -->
+                <div class="bg-white/5 rounded-xl p-5">
+                    <i class="fa-brands fa-windows text-2xl text-blue-400 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Windows</h3>
+                    <p class="text-gray-400 text-sm mb-3">Download and run the MSI installer. The app starts automatically on login.</p>
+                    <code class="text-xs bg-white/10 px-2 py-1 rounded block">notisync-windows-x86_64.msi</code>
+                </div>
+                
+                <!-- macOS -->
+                <div class="bg-white/5 rounded-xl p-5">
+                    <i class="fa-brands fa-apple text-2xl text-gray-300 mb-3"></i>
+                    <h3 class="font-semibold mb-2">macOS</h3>
+                    <p class="text-gray-400 text-sm mb-3">Open the DMG and drag NotiSync to Applications. Run from Launchpad.</p>
+                    <code class="text-xs bg-white/10 px-2 py-1 rounded block">notisync-*-macos-universal.dmg</code>
+                </div>
+                
+                <!-- Linux -->
+                <div class="bg-white/5 rounded-xl p-5">
+                    <i class="fa-brands fa-linux text-2xl text-orange-400 mb-3"></i>
+                    <h3 class="font-semibold mb-2">Linux</h3>
+                    <p class="text-gray-400 text-sm mb-3">Install via your package manager or use the systemd service.</p>
+                    <code class="text-xs bg-white/10 px-2 py-1 rounded block mb-1">sudo dpkg -i notisync_*.deb</code>
+                    <code class="text-xs bg-white/10 px-2 py-1 rounded block">yay -S notisync</code>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <footer class="text-center text-gray-400 text-sm border-t border-white/10 pt-8">
             <p class="mb-4">
