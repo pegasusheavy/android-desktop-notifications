@@ -12,9 +12,9 @@ android/local.properties
 *.ap_
 *.dex
 
-# Arch Linux packaging
-pkg/
-src/
+# Arch Linux packaging (PKGBUILD output directories at repo root)
+/pkg/
+/src/
 *.pkg.tar.zst
 *.pkg.tar.xz
 *.pkg.tar.gz
