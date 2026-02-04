@@ -283,12 +283,14 @@ jobs:
           cp -r packaging/debian .
           chmod +x debian/rules debian/postinst debian/prerm
           dpkg-buildpackage -us -uc -b
+          # Move deb file to current directory for upload
+          mv ../notisync_*.deb .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: notisync-deb
-          path: ../notisync_*.deb
+          path: notisync_*.deb
 
   build-android:
     name: Build Android APK
