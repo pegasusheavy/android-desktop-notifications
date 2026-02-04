@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*"
+             Name="NotiSync"
+             Language="1033"
+             Version="!(bind.FileVersion.NotiSyncExe)"
+             Manufacturer="Pegasus Heavy Industries LLC"
+             UpgradeCode="8B5E1A9C-4F2D-4E3B-9A1C-6D7E8F9A0B1C">
+
+        <Package InstallerVersion="500"
+                 Compressed="yes"
+                 InstallScope="perUser"
+                 Description="Sync Android notifications to your Windows desktop"
+                 Comments="NotiSync Installer" />
+
+        <MajorUpgrade DowngradeErrorMessage="A newer version of NotiSync is already installed." />
+        <MediaTemplate EmbedCab="yes" />
+
+        <Icon Id="NotiSyncIcon" SourceFile="notisync.ico" />
+        <Property Id="ARPPRODUCTICON" Value="NotiSyncIcon" />
+        <Property Id="ARPHELPLINK" Value="https://github.com/pegasusheavy/android-desktop-notifications" />
+
+        <Feature Id="ProductFeature" Title="NotiSync" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+            <ComponentRef Id="ApplicationShortcut" />
+            <ComponentRef Id="StartupShortcut" />
+        </Feature>
+
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="LocalAppDataFolder">
+                <Directory Id="INSTALLFOLDER" Name="NotiSync">
+                    <Component Id="NotiSyncExeComponent" Guid="*">
+                        <File Id="NotiSyncExe"
+                              Source="notisync.exe"
+                              KeyPath="yes" />
+                    </Component>
+                </Directory>
+            </Directory>
+
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ApplicationProgramsFolder" Name="NotiSync">
+                    <Component Id="ApplicationShortcut" Guid="*">
+                        <Shortcut Id="ApplicationStartMenuShortcut"
+                                  Name="NotiSync"
+                                  Description="Sync Android notifications to your desktop"
+                                  Target="[INSTALLFOLDER]notisync.exe"
+                                  WorkingDirectory="INSTALLFOLDER"
+                                  Icon="NotiSyncIcon" />
+                        <RemoveFolder Id="CleanUpShortCut" On="uninstall" />
+                        <RegistryValue Root="HKCU"
+                                       Key="Software\PegasusHeavyIndustries\NotiSync"
+                                       Name="installed"
+                                       Type="integer"
+                                       Value="1"
+                                       KeyPath="yes" />
+                    </Component>
+                </Directory>
+            </Directory>
+
+            <Directory Id="StartupFolder">
+                <Component Id="StartupShortcut" Guid="*">
+                    <Shortcut Id="StartupMenuShortcut"
+                              Name="NotiSync"
+                              Description="Start NotiSync on login"
+                              Target="[INSTALLFOLDER]notisync.exe"
+                              WorkingDirectory="INSTALLFOLDER" />
+                    <RegistryValue Root="HKCU"
+                                   Key="Software\PegasusHeavyIndustries\NotiSync"
+                                   Name="startup"
+                                   Type="integer"
+                                   Value="1"
+                                   KeyPath="yes" />
+                </Component>
+            </Directory>
+        </Directory>
+
+        <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+            <ComponentRef Id="NotiSyncExeComponent" />
+        </ComponentGroup>
+
+        <UI>
+            <UIRef Id="WixUI_Minimal" />
+            <Publish Dialog="ExitDialog"
+                     Control="Finish"
+                     Event="DoAction"
+                     Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+        </UI>
+        <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch NotiSync" />
+        <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+        <Property Id="WixShellExecTarget" Value="[#NotiSyncExe]" />
+        <CustomAction Id="LaunchApplication"
+                      BinaryKey="WixCA"
+                      DllEntry="WixShellExec"
+                      Impersonate="yes" />
+    </Product>
+</Wix>

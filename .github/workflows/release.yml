@@ -58,48 +58,104 @@ jobs:
       - name: Build
         run: cargo build --manifest-path desktop/Cargo.toml --release
 
-      - name: Package
+      - name: Create icon
         shell: pwsh
         run: |
-          $VERSION = $env:GITHUB_REF -replace 'refs/tags/v', ''
+          # Create a simple ICO file from SVG (placeholder - use actual icon in production)
+          # For now, we'll skip the icon requirement in WiX
+
+      - name: Install WiX Toolset
+        shell: pwsh
+        run: |
+          dotnet tool install --global wix
+
+      - name: Get version
+        id: version
+        shell: bash
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Build MSI
+        shell: pwsh
+        run: |
+          $VERSION = "${{ steps.version.outputs.version }}"
+
+          # Create a simplified WiX file without icon
+          @"
+          <?xml version="1.0" encoding="UTF-8"?>
+          <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+              <Package Name="NotiSync"
+                       Version="$VERSION.0"
+                       Manufacturer="Pegasus Heavy Industries LLC"
+                       UpgradeCode="8B5E1A9C-4F2D-4E3B-9A1C-6D7E8F9A0B1C"
+                       Scope="perUser">
+
+                  <MajorUpgrade DowngradeErrorMessage="A newer version of NotiSync is already installed." />
+                  <MediaTemplate EmbedCab="yes" />
+
+                  <StandardDirectory Id="LocalAppDataFolder">
+                      <Directory Id="INSTALLFOLDER" Name="NotiSync">
+                          <Component Id="MainExecutable" Guid="*">
+                              <File Id="NotiSyncExe" Source="desktop\target\release\notisync.exe" />
+                          </Component>
+                      </Directory>
+                  </StandardDirectory>
+
+                  <StandardDirectory Id="ProgramMenuFolder">
+                      <Directory Id="ProgramMenuDir" Name="NotiSync">
+                          <Component Id="StartMenuShortcut" Guid="*">
+                              <Shortcut Id="StartMenuShortcut"
+                                        Name="NotiSync"
+                                        Target="[INSTALLFOLDER]notisync.exe"
+                                        WorkingDirectory="INSTALLFOLDER" />
+                              <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+                              <RegistryValue Root="HKCU" Key="Software\NotiSync" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+                          </Component>
+                      </Directory>
+                  </StandardDirectory>
+
+                  <StandardDirectory Id="StartupFolder">
+                      <Component Id="StartupShortcut" Guid="*">
+                          <Shortcut Id="StartupShortcut"
+                                    Name="NotiSync"
+                                    Target="[INSTALLFOLDER]notisync.exe"
+                                    WorkingDirectory="INSTALLFOLDER" />
+                          <RegistryValue Root="HKCU" Key="Software\NotiSync" Name="startup" Type="integer" Value="1" KeyPath="yes" />
+                      </Component>
+                  </StandardDirectory>
+
+                  <Feature Id="Main">
+                      <ComponentRef Id="MainExecutable" />
+                      <ComponentRef Id="StartMenuShortcut" />
+                      <ComponentRef Id="StartupShortcut" />
+                  </Feature>
+              </Package>
+          </Wix>
+          "@ | Out-File -FilePath "notisync.wxs" -Encoding UTF8
+
+          wix build notisync.wxs -o notisync-windows-x86_64.msi
+
+      - name: Package ZIP
+        shell: pwsh
+        run: |
           mkdir dist
           Copy-Item desktop/target/release/notisync.exe dist/
           Copy-Item LICENSE dist/
           Compress-Archive -Path dist/* -DestinationPath notisync-windows-x86_64.zip
 
-      - name: Upload artifact
+      - name: Upload MSI
+        uses: actions/upload-artifact@v4
+        with:
+          name: notisync-windows-msi
+          path: notisync-windows-x86_64.msi
+
+      - name: Upload ZIP
         uses: actions/upload-artifact@v4
         with:
           name: notisync-windows-x86_64
           path: notisync-windows-x86_64.zip
 
   build-desktop-macos:
-    name: Build Desktop (macOS x86_64)
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Rust
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Build
-        run: cargo build --manifest-path desktop/Cargo.toml --release
-
-      - name: Package
-        run: |
-          mkdir -p dist
-          cp desktop/target/release/notisync dist/
-          cp LICENSE dist/
-          tar -czvf notisync-macos-x86_64.tar.gz -C dist .
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: notisync-macos-x86_64
-          path: notisync-macos-x86_64.tar.gz
-
-  build-desktop-macos-arm:
-    name: Build Desktop (macOS ARM64)
+    name: Build Desktop (macOS Universal)
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
@@ -107,23 +163,99 @@ jobs:
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          targets: aarch64-apple-darwin
+          targets: x86_64-apple-darwin,aarch64-apple-darwin
 
-      - name: Build
+      - name: Build x86_64
+        run: cargo build --manifest-path desktop/Cargo.toml --release --target x86_64-apple-darwin
+
+      - name: Build ARM64
         run: cargo build --manifest-path desktop/Cargo.toml --release --target aarch64-apple-darwin
 
-      - name: Package
+      - name: Create Universal Binary
         run: |
-          mkdir -p dist
-          cp desktop/target/aarch64-apple-darwin/release/notisync dist/
-          cp LICENSE dist/
-          tar -czvf notisync-macos-aarch64.tar.gz -C dist .
+          lipo -create \
+            desktop/target/x86_64-apple-darwin/release/notisync \
+            desktop/target/aarch64-apple-darwin/release/notisync \
+            -output notisync
 
-      - name: Upload artifact
+      - name: Get version
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create App Bundle and DMG
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          APP_NAME="NotiSync"
+          DMG_NAME="notisync-${VERSION}-macos-universal.dmg"
+
+          # Create app bundle structure
+          mkdir -p "${APP_NAME}.app/Contents/MacOS"
+          mkdir -p "${APP_NAME}.app/Contents/Resources"
+
+          # Copy universal binary
+          cp notisync "${APP_NAME}.app/Contents/MacOS/"
+          chmod +x "${APP_NAME}.app/Contents/MacOS/notisync"
+
+          # Create Info.plist with correct version
+          cat > "${APP_NAME}.app/Contents/Info.plist" << EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>CFBundleDevelopmentRegion</key>
+              <string>en</string>
+              <key>CFBundleExecutable</key>
+              <string>notisync</string>
+              <key>CFBundleIdentifier</key>
+              <string>com.pegasusheavy.notisync</string>
+              <key>CFBundleInfoDictionaryVersion</key>
+              <string>6.0</string>
+              <key>CFBundleName</key>
+              <string>NotiSync</string>
+              <key>CFBundlePackageType</key>
+              <string>APPL</string>
+              <key>CFBundleShortVersionString</key>
+              <string>${VERSION}</string>
+              <key>CFBundleVersion</key>
+              <string>${VERSION}</string>
+              <key>LSMinimumSystemVersion</key>
+              <string>10.13</string>
+              <key>LSUIElement</key>
+              <true/>
+              <key>NSHighResolutionCapable</key>
+              <true/>
+              <key>NSHumanReadableCopyright</key>
+              <string>Copyright © 2024 Pegasus Heavy Industries LLC</string>
+              <key>LSApplicationCategoryType</key>
+              <string>public.app-category.utilities</string>
+          </dict>
+          </plist>
+          EOF
+
+          # Create DMG
+          mkdir -p dmg_contents
+          cp -r "${APP_NAME}.app" dmg_contents/
+          ln -s /Applications dmg_contents/Applications
+
+          hdiutil create -volname "${APP_NAME}" \
+              -srcfolder dmg_contents \
+              -ov -format UDZO \
+              "${DMG_NAME}"
+
+          # Also create tar.gz for those who prefer it
+          tar -czvf notisync-macos-universal.tar.gz -C dmg_contents "${APP_NAME}.app"
+
+      - name: Upload DMG
         uses: actions/upload-artifact@v4
         with:
-          name: notisync-macos-aarch64
-          path: notisync-macos-aarch64.tar.gz
+          name: notisync-macos-dmg
+          path: notisync-*-macos-universal.dmg
+
+      - name: Upload tar.gz
+        uses: actions/upload-artifact@v4
+        with:
+          name: notisync-macos-universal
+          path: notisync-macos-universal.tar.gz
 
   build-deb:
     name: Build Debian Package
@@ -196,7 +328,7 @@ jobs:
 
   create-release:
     name: Create Release
-    needs: [build-desktop-linux, build-desktop-windows, build-desktop-macos, build-desktop-macos-arm, build-deb, build-android]
+    needs: [build-desktop-linux, build-desktop-windows, build-desktop-macos, build-deb, build-android]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -220,8 +352,9 @@ jobs:
           files: |
             artifacts/notisync-linux-x86_64/*.tar.gz
             artifacts/notisync-windows-x86_64/*.zip
-            artifacts/notisync-macos-x86_64/*.tar.gz
-            artifacts/notisync-macos-aarch64/*.tar.gz
+            artifacts/notisync-windows-msi/*.msi
+            artifacts/notisync-macos-dmg/*.dmg
+            artifacts/notisync-macos-universal/*.tar.gz
             artifacts/notisync-deb/*.deb
             artifacts/notisync-android-debug/*.apk
             artifacts/notisync-android-release/*.apk
