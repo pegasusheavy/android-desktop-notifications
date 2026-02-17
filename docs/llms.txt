@@ -1,0 +1,48 @@
+# NotiSync
+
+> Sync your Android notifications to Windows, macOS, and Linux desktops.
+
+NotiSync forwards Android notifications to your desktop in real time over your local network. It consists of an Android app that listens for notifications and a desktop client (written in Rust) that displays them as native desktop notifications. All communication is encrypted with TLS, devices discover each other automatically via mDNS, and no cloud service or account is required.
+
+## Links
+
+- [Documentation](https://pegasusheavy.github.io/android-desktop-notifications/)
+- [GitHub Repository](https://github.com/pegasusheavy/android-desktop-notifications)
+- [Releases](https://github.com/pegasusheavy/android-desktop-notifications/releases/latest)
+
+## Key Features
+
+- Real-time notification sync from Android to desktop
+- Works entirely over local WiFi with no cloud dependency
+- TLS-encrypted communication between devices
+- Automatic device discovery via mDNS
+- Cross-platform desktop support: Windows (MSI), macOS (Universal DMG), Linux (DEB, AUR)
+- Android app with notification listener service
+- System tray integration on desktop
+- Battery optimization controls for reliable background operation
+
+## Installation
+
+### Android
+
+Download the APK from the [latest release](https://github.com/pegasusheavy/android-desktop-notifications/releases/latest) and sideload it.
+
+### Desktop
+
+```bash
+# Linux (Debian/Ubuntu)
+sudo dpkg -i notisync_*.deb
+
+# Linux (Arch)
+yay -S notisync
+```
+
+Windows: Download and run the MSI installer. macOS: Open the DMG and drag to Applications.
+
+## Quick Start
+
+1. Install the Android app and desktop client
+2. Grant notification access to NotiSync on Android
+3. Ensure both devices are on the same WiFi network
+4. Devices discover each other automatically via mDNS
+5. Notifications from your phone appear as native desktop notifications
