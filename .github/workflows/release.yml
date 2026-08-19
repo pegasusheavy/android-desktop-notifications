@@ -85,7 +85,7 @@ jobs:
           <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
               <Package Name="NotiSync"
                        Version="$VERSION.0"
-                       Manufacturer="Pegasus Heavy Industries LLC"
+                       Manufacturer="Joseph R. Quinn"
                        UpgradeCode="8B5E1A9C-4F2D-4E3B-9A1C-6D7E8F9A0B1C"
                        Scope="perUser">
 
@@ -207,7 +207,7 @@ jobs:
               <key>CFBundleExecutable</key>
               <string>notisync</string>
               <key>CFBundleIdentifier</key>
-              <string>com.pegasusheavy.notisync</string>
+              <string>dev.quinnjr.notisync</string>
               <key>CFBundleInfoDictionaryVersion</key>
               <string>6.0</string>
               <key>CFBundleName</key>
@@ -225,7 +225,7 @@ jobs:
               <key>NSHighResolutionCapable</key>
               <true/>
               <key>NSHumanReadableCopyright</key>
-              <string>Copyright © 2024 Pegasus Heavy Industries LLC</string>
+              <string>Copyright © 2024 Joseph R. Quinn</string>
               <key>LSApplicationCategoryType</key>
               <string>public.app-category.utilities</string>
           </dict>

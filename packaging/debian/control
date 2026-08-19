@@ -10,7 +10,7 @@ Build-Depends: debhelper-compat (= 13),
                libayatana-appindicator3-dev,
                libxdo-dev
 Standards-Version: 4.6.0
-Homepage: https://github.com/pegasusheavy/android-desktop-notifications
+Homepage: https://github.com/quinnjr/android-desktop-notifications
 
 Package: notisync
 Architecture: amd64

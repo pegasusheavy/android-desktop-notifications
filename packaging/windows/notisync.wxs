@@ -4,7 +4,7 @@
              Name="NotiSync"
              Language="1033"
              Version="!(bind.FileVersion.NotiSyncExe)"
-             Manufacturer="Pegasus Heavy Industries LLC"
+             Manufacturer="Joseph R. Quinn"
              UpgradeCode="8B5E1A9C-4F2D-4E3B-9A1C-6D7E8F9A0B1C">
 
         <Package InstallerVersion="500"
@@ -18,7 +18,7 @@
 
         <Icon Id="NotiSyncIcon" SourceFile="notisync.ico" />
         <Property Id="ARPPRODUCTICON" Value="NotiSyncIcon" />
-        <Property Id="ARPHELPLINK" Value="https://github.com/pegasusheavy/android-desktop-notifications" />
+        <Property Id="ARPHELPLINK" Value="https://github.com/quinnjr/android-desktop-notifications" />
 
         <Feature Id="ProductFeature" Title="NotiSync" Level="1">
             <ComponentGroupRef Id="ProductComponents" />
@@ -48,7 +48,7 @@
                                   Icon="NotiSyncIcon" />
                         <RemoveFolder Id="CleanUpShortCut" On="uninstall" />
                         <RegistryValue Root="HKCU"
-                                       Key="Software\PegasusHeavyIndustries\NotiSync"
+                                       Key="Software\JosephRQuinn\NotiSync"
                                        Name="installed"
                                        Type="integer"
                                        Value="1"
@@ -65,7 +65,7 @@
                               Target="[INSTALLFOLDER]notisync.exe"
                               WorkingDirectory="INSTALLFOLDER" />
                     <RegistryValue Root="HKCU"
-                                   Key="Software\PegasusHeavyIndustries\NotiSync"
+                                   Key="Software\JosephRQuinn\NotiSync"
                                    Name="startup"
                                    Type="integer"
                                    Value="1"
