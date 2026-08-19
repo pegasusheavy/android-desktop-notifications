@@ -6,9 +6,9 @@ NotiSync forwards Android notifications to your desktop in real time over your l
 
 ## Links
 
-- [Documentation](https://pegasusheavy.github.io/android-desktop-notifications/)
-- [GitHub Repository](https://github.com/pegasusheavy/android-desktop-notifications)
-- [Releases](https://github.com/pegasusheavy/android-desktop-notifications/releases/latest)
+- [Documentation](https://quinnjr.github.io/android-desktop-notifications/)
+- [GitHub Repository](https://github.com/quinnjr/android-desktop-notifications)
+- [Releases](https://github.com/quinnjr/android-desktop-notifications/releases/latest)
 
 ## Key Features
 
@@ -25,7 +25,7 @@ NotiSync forwards Android notifications to your desktop in real time over your l
 
 ### Android
 
-Download the APK from the [latest release](https://github.com/pegasusheavy/android-desktop-notifications/releases/latest) and sideload it.
+Download the APK from the [latest release](https://github.com/quinnjr/android-desktop-notifications/releases/latest) and sideload it.
 
 ### Desktop
 

@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Joseph Quinn <quinn.josephr@protonmail.com>"]
 license = "MIT"
 description = "Sync Android notifications to your desktop"
-repository = "https://github.com/pegasusheavy/android-desktop-notifications"
+repository = "https://github.com/quinnjr/android-desktop-notifications"
 keywords = ["notifications", "android", "sync", "desktop"]
 categories = ["network-programming"]
 

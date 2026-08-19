@@ -5,8 +5,8 @@
 #
 # Usage: ./scripts/release.sh [major|minor|patch]
 #
-# Copyright (c) 2026 Pegasus Heavy Industries LLC
-# Contact: pegasusheavyindustries@gmail.com
+# Copyright (c) 2026 Joseph R. Quinn
+# Contact: quinn.josephr@protonmail.com
 
 set -euo pipefail
 
@@ -219,7 +219,7 @@ print_summary() {
     echo -e "${GREEN}║${NC} Tag: ${BLUE}v$new_version${NC}"
     echo -e "${GREEN}║${NC}"
     echo -e "${GREEN}║${NC} GitHub Actions will now build and create the release."
-    echo -e "${GREEN}║${NC} Monitor at: ${BLUE}https://github.com/pegasusheavy/android-desktop-notifications/actions${NC}"
+    echo -e "${GREEN}║${NC} Monitor at: ${BLUE}https://github.com/quinnjr/android-desktop-notifications/actions${NC}"
     echo -e "${GREEN}╚══════════════════════════════════════════════════════════╝${NC}"
     echo ""
 }

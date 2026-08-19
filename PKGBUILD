@@ -4,7 +4,7 @@ pkgver=0.2.0
 pkgrel=1
 pkgdesc="Sync Android notifications to your Linux desktop"
 arch=('x86_64')
-url="https://github.com/pegasusheavy/android-desktop-notifications"
+url="https://github.com/quinnjr/android-desktop-notifications"
 license=('MIT')
 depends=(
     'gtk3'
